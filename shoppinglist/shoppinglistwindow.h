@@ -23,6 +23,7 @@ private slots:
     void on_pushButtonDelete_clicked();
     void on_pushButtonSave_clicked();
     void on_pushButtonLoad_clicked();
+    void on_pushButtonStore_clicked();
 };
 
 #endif // SHOPPINGLISTWINDOW_H

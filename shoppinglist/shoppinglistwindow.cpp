@@ -1,4 +1,5 @@
 #include "shoppinglistwindow.h"
+#include "storewindow.h"
 #include "ui_shoppinglistwindow.h"
 #include <QFileDialog>
 #include <QFile>
@@ -103,5 +104,11 @@ void ShoppingListWindow::on_pushButtonLoad_clicked()
     } else {
         QMessageBox::warning(this, "Błąd", "Nie udało się otworzyć pliku.");
     }
+}
+
+void ShoppingListWindow::on_pushButtonStore_clicked()
+{
+    StoreWindow* store = new StoreWindow(this);
+    store->show();
 }
 
