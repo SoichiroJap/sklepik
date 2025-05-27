@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::ShoppingListWindow *ui;
+
+private slots:
+    void on_pushButtonAdd_clicked();
 };
 
 #endif // SHOPPINGLISTWINDOW_H

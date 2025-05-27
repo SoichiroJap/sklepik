@@ -13,3 +13,23 @@ ShoppingListWindow::~ShoppingListWindow()
 {
     delete ui;
 }
+
+void ShoppingListWindow::on_pushButtonAdd_clicked()
+{
+    QString name = ui->lineEditName->text();
+    int quantity = ui->spinBoxQuantity->value();
+    double price = ui->doubleSpinBoxPrice->value();
+
+    if (name.isEmpty()) return;
+
+    QString itemText = QString("%1   ilość: %2   cena: %3 zł")
+                           .arg(name)
+                           .arg(quantity)
+                           .arg(QString::number(price, 'f', 2));
+
+    QListWidgetItem *item = new QListWidgetItem(itemText);
+    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+    item->setCheckState(Qt::Unchecked);
+
+    ui->listWidgetProducts->addItem(item);
+}
