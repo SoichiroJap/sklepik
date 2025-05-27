@@ -58,11 +58,36 @@
     </item>
 
     <item>
-     <widget class="QPushButton" name="pushButtonDelete">
-      <property name="text">
-       <string>Usuń zaznaczone</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <item>
+       <widget class="QPushButton" name="pushButtonDelete">
+        <property name="text">
+         <string>Usuń zaznaczone</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonSave">
+        <property name="text">
+         <string>Zapisz listę</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonLoad">
+        <property name="text">
+         <string>Wczytaj listę</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonStore">
+        <property name="text">
+         <string>Sklep</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
 
    </layout>

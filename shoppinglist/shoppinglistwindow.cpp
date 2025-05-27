@@ -1,5 +1,9 @@
 #include "shoppinglistwindow.h"
 #include "ui_shoppinglistwindow.h"
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
 ShoppingListWindow::ShoppingListWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,6 +45,31 @@ void ShoppingListWindow::on_pushButtonDelete_clicked()
         if (item->checkState() == Qt::Checked) {
             delete ui->listWidgetProducts->takeItem(i);
         }
+    }
+}
+
+void ShoppingListWindow::on_pushButtonSave_clicked()
+{
+    QString filePath = QFileDialog::getSaveFileName(
+        this,
+        "Zapisz listę zakupów",
+        QDir::homePath(),
+        "Pliki tekstowe (*.txt);;Wszystkie pliki (*)"
+        );
+
+    if (filePath.isEmpty())
+        return;
+
+    QFile file(filePath);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+        for (int i = 0; i < ui->listWidgetProducts->count(); ++i) {
+            stream << ui->listWidgetProducts->item(i)->text() << "\n";
+        }
+        file.close();
+        QMessageBox::information(this, "Zapisano", "Lista została zapisana.");
+    } else {
+        QMessageBox::warning(this, "Błąd", "Nie udało się zapisać pliku.");
     }
 }
 
