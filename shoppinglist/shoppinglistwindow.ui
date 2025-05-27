@@ -57,6 +57,14 @@
      <widget class="QListWidget" name="listWidgetProducts"/>
     </item>
 
+    <item>
+     <widget class="QPushButton" name="pushButtonDelete">
+      <property name="text">
+       <string>Usuń zaznaczone</string>
+      </property>
+     </widget>
+    </item>
+
    </layout>
   </widget>
  </widget>
