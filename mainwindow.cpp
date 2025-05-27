@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "shoppinglistwindow.h"
+#include "storewindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 
@@ -22,12 +24,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleShoppingListClicked()
 {
-    qDebug() << "Kliknięto: Lista zakupów";
-    // otworzyć liste
+    if (!shoppingWindow)
+        shoppingWindow = new ShoppingListWindow(this);
+    shoppingWindow->show();
+    shoppingWindow->raise();
+    shoppingWindow->activateWindow();
 }
 
 void MainWindow::handleStoreClicked()
 {
-    qDebug() << "Kliknięto: Sklep";
-    //otworzyc sklep
+    if (!storeWindow)
+        storeWindow = new StoreWindow(this);
+    storeWindow->show();
+    storeWindow->raise();
+    storeWindow->activateWindow();
 }

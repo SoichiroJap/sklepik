@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "shoppinglist/shoppinglistwindow.h"
+#include "store/storewindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,6 +23,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    ShoppingListWindow* shoppingWindow = nullptr;
+    StoreWindow* storeWindow = nullptr;
 };
 
 #endif // MAINWINDOW_H

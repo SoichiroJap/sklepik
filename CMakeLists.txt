@@ -44,6 +44,11 @@ endif()
 
 target_link_libraries(sklepik PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/shoppinglist
+    ${CMAKE_CURRENT_SOURCE_DIR}/store
+)
+
 add_subdirectory(shoppinglist)
 add_subdirectory(store)
 

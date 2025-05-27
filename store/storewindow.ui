@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StoreWindow</class>
+ <widget class="QMainWindow" name="StoreWindow">
+  <property name="windowTitle">
+   <string>Sklep</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

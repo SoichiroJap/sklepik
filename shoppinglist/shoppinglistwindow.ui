@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ShoppingListWindow</class>
+ <widget class="QMainWindow" name="ShoppingListWindow">
+  <property name="windowTitle">
+   <string>Lista zakupów</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
