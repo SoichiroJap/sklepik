@@ -73,3 +73,35 @@ void ShoppingListWindow::on_pushButtonSave_clicked()
     }
 }
 
+void ShoppingListWindow::on_pushButtonLoad_clicked()
+{
+    QString filePath = QFileDialog::getOpenFileName(
+        this,
+        "Wczytaj listę zakupów",
+        QDir::homePath(),
+        "Pliki tekstowe (*.txt);;Wszystkie pliki (*)"
+        );
+
+    if (filePath.isEmpty())
+        return;
+
+    QFile file(filePath);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        ui->listWidgetProducts->clear();
+        QTextStream stream(&file);
+        while (!stream.atEnd()) {
+            QString line = stream.readLine();
+            if (line.trimmed().isEmpty()) continue;
+
+            QListWidgetItem *item = new QListWidgetItem(line);
+            item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+            item->setCheckState(Qt::Unchecked);
+            ui->listWidgetProducts->addItem(item);
+        }
+        file.close();
+        QMessageBox::information(this, "Wczytano", "Lista została załadowana.");
+    } else {
+        QMessageBox::warning(this, "Błąd", "Nie udało się otworzyć pliku.");
+    }
+}
+
