@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,16 +16,27 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pbShoppingList">
-      <property name="text">
-       <string>Lista zakupów</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="pbShoppingList">
+        <property name="text">
+         <string>Lista zakupów</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pbStore">
+        <property name="text">
+         <string>Sklep</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="pbStore">
+     <widget class="QCheckBox" name="checkBoxDarkMode">
       <property name="text">
-       <string>Sklep</string>
+       <string>Ciemny motyw</string>
       </property>
      </widget>
     </item>

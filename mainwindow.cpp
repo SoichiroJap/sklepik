@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->pbStore, &QPushButton::clicked,
             this, &MainWindow::handleStoreClicked);
+
+    connect(ui->checkBoxDarkMode, &QCheckBox::stateChanged,
+            this, &MainWindow::on_checkBoxDarkMode_stateChanged);
 }
 
 MainWindow::~MainWindow()
@@ -38,4 +41,15 @@ void MainWindow::handleStoreClicked()
     storeWindow->show();
     storeWindow->raise();
     storeWindow->activateWindow();
+}
+
+void MainWindow::on_checkBoxDarkMode_stateChanged(int state)
+{
+    if (state == Qt::Checked) {
+        qApp->setStyleSheet("QWidget { background-color: #2d2d2d; color: #ffffff; }"
+                            "QLineEdit, QSpinBox, QDoubleSpinBox, QListWidget, QPushButton { background-color: #444; color: #fff; }"
+                            "QPushButton:hover { background-color: #666; }");
+    } else {
+        qApp->setStyleSheet("");
+    }
 }

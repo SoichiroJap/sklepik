@@ -20,6 +20,7 @@ public:
 private slots:
     void handleShoppingListClicked();
     void handleStoreClicked();
+    void on_checkBoxDarkMode_stateChanged(int state);
 
 private:
     Ui::MainWindow *ui;
