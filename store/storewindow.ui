@@ -2,10 +2,35 @@
 <ui version="4.0">
  <class>StoreWindow</class>
  <widget class="QMainWindow" name="StoreWindow">
+<property name="minimumSize">
+ <size>
+  <width>500</width>
+  <height>400</height>
+ </size>
+</property>
+<property name="maximumSize">
+ <size>
+  <width>16777215</width>
+  <height>16777215</height>
+ </size>
+</property>
   <property name="windowTitle">
    <string>Sklep</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListWidget" name="listWidgetStore"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonAddToCart">
+      <property name="text">
+       <string>Dodaj do koszyka</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>
