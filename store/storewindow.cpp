@@ -2,6 +2,10 @@
 #include "ui_storewindow.h"
 #include <QMessageBox>
 #include <QRegularExpression>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QDateTime>
 
 StoreWindow::StoreWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -149,6 +153,37 @@ void StoreWindow::on_pushButtonAddToCart_clicked()
     msgBox.exec();
 
     if (msgBox.clickedButton() == btnZaplac) {
+        handleZaplac(wybraneProdukty, suma);
+    }
+}
 
+void StoreWindow::handleZaplac(const QStringList& produkty, double suma)
+{
+    QString filePath = QFileDialog::getSaveFileName(
+        this,
+        "Zapisz paragon",
+        QDir::homePath() + "/paragon.txt",
+        "Pliki tekstowe (*.txt)"
+        );
+
+    if (filePath.isEmpty())
+        return;
+
+    QFile file(filePath);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+
+        stream << "🧾 PARAGON\n\n";
+        for (const QString& item : produkty) {
+            stream << "- " << item << "\n";
+        }
+
+        stream << "\nSuma: " << QString::number(suma, 'f', 2) << " zł\n";
+        stream << "Data zakupu: " << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm") << "\n";
+
+        file.close();
+        QMessageBox::information(this, "Paragon zapisany", "Paragon został zapisany pomyślnie.");
+    } else {
+        QMessageBox::warning(this, "Błąd", "Nie udało się zapisać paragonu.");
     }
 }

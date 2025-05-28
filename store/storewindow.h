@@ -20,6 +20,7 @@ private:
 
 private slots:
     void on_pushButtonAddToCart_clicked();
+    void handleZaplac(const QStringList& produkty, double suma);
 };
 
 #endif // STOREWINDOW_H
