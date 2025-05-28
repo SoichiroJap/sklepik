@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::StoreWindow *ui;
+
+private slots:
+    void on_pushButtonAddToCart_clicked();
 };
 
 #endif // STOREWINDOW_H

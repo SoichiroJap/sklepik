@@ -1,5 +1,7 @@
 #include "storewindow.h"
 #include "ui_storewindow.h"
+#include <QMessageBox>
+#include <QRegularExpression>
 
 StoreWindow::StoreWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -114,4 +116,39 @@ StoreWindow::StoreWindow(QWidget *parent)
 StoreWindow::~StoreWindow()
 {
     delete ui;
+}
+
+void StoreWindow::on_pushButtonAddToCart_clicked()
+{
+    QStringList wybraneProdukty;
+    double suma = 0.0;
+
+    for (int i = 0; i < ui->listWidgetStore->count(); ++i) {
+        QListWidgetItem* item = ui->listWidgetStore->item(i);
+        if (item->checkState() == Qt::Checked) {
+            wybraneProdukty.append(item->text());
+
+            QRegularExpression regex("–\\s*(\\d+\\.?\\d*)\\s*zł");
+            QRegularExpressionMatch match = regex.match(item->text());
+            if (match.hasMatch()) {
+                suma += match.captured(1).toDouble();
+            }
+        }
+    }
+
+    if (wybraneProdukty.isEmpty()) {
+        QMessageBox::information(this, "Koszyk pusty", "Nie wybrano żadnych produktów.");
+        return;
+    }
+
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Koszyk");
+    msgBox.setText(QString("Dodano do koszyka.\nŁączna cena: %1 zł").arg(QString::number(suma, 'f', 2)));
+    QPushButton* btnZaplac = msgBox.addButton("Zapłać", QMessageBox::AcceptRole);
+    QPushButton* btnPowrot = msgBox.addButton("Powrót", QMessageBox::RejectRole);
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == btnZaplac) {
+
+    }
 }
