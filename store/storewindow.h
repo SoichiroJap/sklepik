@@ -21,6 +21,7 @@ private:
 private slots:
     void on_pushButtonAddToCart_clicked();
     void handleZaplac(const QStringList& produkty, double suma);
+    void on_comboBoxSort_currentIndexChanged(int index);
 };
 
 #endif // STOREWINDOW_H

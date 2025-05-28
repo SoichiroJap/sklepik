@@ -19,6 +19,22 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+ <widget class="QComboBox" name="comboBoxSort">
+  <item>
+   <property name="text"><string>Sortuj wg nazwy (A-Z)</string></property>
+  </item>
+  <item>
+   <property name="text"><string>Sortuj wg nazwy (Z-A)</string></property>
+  </item>
+  <item>
+   <property name="text"><string>Sortuj wg ceny (rosnąco)</string></property>
+  </item>
+  <item>
+   <property name="text"><string>Sortuj wg ceny (malejąco)</string></property>
+  </item>
+ </widget>
+</item>
     <item>
      <widget class="QListWidget" name="listWidgetStore"/>
     </item>

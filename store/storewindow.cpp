@@ -187,3 +187,50 @@ void StoreWindow::handleZaplac(const QStringList& produkty, double suma)
         QMessageBox::warning(this, "Błąd", "Nie udało się zapisać paragonu.");
     }
 }
+
+void StoreWindow::on_comboBoxSort_currentIndexChanged(int index)
+{
+    QVector<QPair<QString, double>> produkty;
+
+    for (int i = 0; i < ui->listWidgetStore->count(); ++i) {
+        QListWidgetItem* item = ui->listWidgetStore->item(i);
+        QString text = item->text();
+
+        QRegularExpression regex("–\\s*(\\d+\\.?\\d*)\\s*zł");
+        QRegularExpressionMatch match = regex.match(text);
+        double cena = match.hasMatch() ? match.captured(1).toDouble() : 0.0;
+
+        produkty.append({ text, cena });
+    }
+
+    switch (index) {
+    case 0:
+        std::sort(produkty.begin(), produkty.end(), [](auto& a, auto& b) {
+            return a.first.toLower() < b.first.toLower();
+        });
+        break;
+    case 1:
+        std::sort(produkty.begin(), produkty.end(), [](auto& a, auto& b) {
+            return a.first.toLower() > b.first.toLower();
+        });
+        break;
+    case 2:
+        std::sort(produkty.begin(), produkty.end(), [](auto& a, auto& b) {
+            return a.second < b.second;
+        });
+        break;
+    case 3:
+        std::sort(produkty.begin(), produkty.end(), [](auto& a, auto& b) {
+            return a.second > b.second;
+        });
+        break;
+    }
+
+    ui->listWidgetStore->clear();
+    for (const auto& p : produkty) {
+        QListWidgetItem* item = new QListWidgetItem(p.first);
+        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+        item->setCheckState(Qt::Unchecked);
+        ui->listWidgetStore->addItem(item);
+    }
+}
