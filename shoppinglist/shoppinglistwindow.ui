@@ -46,7 +46,7 @@
       <item>
        <widget class="QPushButton" name="pushButtonAdd">
         <property name="text">
-         <string>Dodaj</string>
+         <string>➕Dodaj</string>
         </property>
        </widget>
       </item>
@@ -62,28 +62,28 @@
       <item>
        <widget class="QPushButton" name="pushButtonDelete">
         <property name="text">
-         <string>Usuń zaznaczone</string>
+         <string>❌Usuń zaznaczone</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButtonSave">
         <property name="text">
-         <string>Zapisz listę</string>
+         <string>💾Zapisz listę</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButtonLoad">
         <property name="text">
-         <string>Wczytaj listę</string>
+         <string>📂Wczytaj listę</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButtonStore">
         <property name="text">
-         <string>Sklep</string>
+         <string>🛒Sklep</string>
         </property>
        </widget>
       </item>

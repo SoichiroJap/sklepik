@@ -41,7 +41,7 @@
     <item>
      <widget class="QPushButton" name="pushButtonAddToCart">
       <property name="text">
-       <string>Dodaj do koszyka</string>
+       <string>➕Dodaj do koszyka</string>
       </property>
      </widget>
     </item>

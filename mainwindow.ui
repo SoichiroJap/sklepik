@@ -20,14 +20,14 @@
       <item>
        <widget class="QPushButton" name="pbShoppingList">
         <property name="text">
-         <string>Lista zakupów</string>
+         <string>📝Lista zakupów</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pbStore">
         <property name="text">
-         <string>Sklep</string>
+         <string>🛒Sklep</string>
         </property>
        </widget>
       </item>
